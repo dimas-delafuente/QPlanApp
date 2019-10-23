@@ -7,25 +7,26 @@ using Xamarin.Forms;
 
 using QPlanApp.Models;
 using QPlanApp.Views;
+using System.Linq;
 
 namespace QPlanApp.ViewModels
 {
     public class ItemsViewModel : BaseViewModel
     {
-        public ObservableCollection<Item> Items { get; set; }
+        public ObservableCollection<Restaurant> Restaurants { get; set; }
         public Command LoadItemsCommand { get; set; }
 
         public ItemsViewModel()
         {
             Title = "Browse";
-            Items = new ObservableCollection<Item>();
+            Restaurants = new ObservableCollection<Restaurant>();
             LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommand());
 
-            MessagingCenter.Subscribe<NewItemPage, Item>(this, "AddItem", async (obj, item) =>
+            MessagingCenter.Subscribe<NewItemPage, Restaurant>(this, "AddItem", async (obj, restaurant) =>
             {
-                var newItem = item as Item;
-                Items.Add(newItem);
-                await DataStore.AddItemAsync(newItem);
+                var newRestaurant = restaurant as Restaurant;
+                Restaurants.Add(newRestaurant);
+                await DataStore.AddItemAsync(newRestaurant);
             });
         }
 
@@ -38,11 +39,11 @@ namespace QPlanApp.ViewModels
 
             try
             {
-                Items.Clear();
-                var items = await DataStore.GetItemsAsync(true);
-                foreach (var item in items)
+                Restaurants.Clear();
+                var restaurants = await DataStore.GetItemsAsync(true);
+                foreach (var restaurant in restaurants)
                 {
-                    Items.Add(item);
+                    Restaurants.Add(restaurant);
                 }
             }
             catch (Exception ex)

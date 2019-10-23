@@ -8,10 +8,12 @@
              Title="{Binding Title}">
 
     <StackLayout Spacing="20" Padding="15">
-        <Label Text="Text:" FontSize="Medium" />
-        <Label Text="{Binding Item.Text}" d:Text="Item name" FontSize="Small"/>
-        <Label Text="Description:" FontSize="Medium" />
-        <Label Text="{Binding Item.Description}" d:Text="Item description" FontSize="Small"/>
+        <Label Text="Address:" FontSize="Medium" />
+        <Label Text="{Binding Restaurant.Address}" d:Text="Item description" FontSize="Small"/>
+        <Label Text="Phone:" FontSize="Medium" />
+        <Label Text="{Binding Restaurant.Phone}" d:Text="Item description" FontSize="Small"/>
+        <Label Text="Rating:" FontSize="Medium" />
+        <Label Text="{Binding Restaurant.Rating}" d:Text="Item description" FontSize="Small"/>
     </StackLayout>
     
 </ContentPage>

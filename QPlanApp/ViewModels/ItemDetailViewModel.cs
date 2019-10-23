@@ -6,11 +6,11 @@ namespace QPlanApp.ViewModels
 {
     public class ItemDetailViewModel : BaseViewModel
     {
-        public Item Item { get; set; }
-        public ItemDetailViewModel(Item item = null)
+        public Restaurant Restaurant { get; set; }
+        public ItemDetailViewModel(Restaurant restaurant = null)
         {
-            Title = item?.Text;
-            Item = item;
+            Title = restaurant?.Name;
+            Restaurant = restaurant;
         }
     }
 }

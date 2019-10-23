@@ -26,10 +26,10 @@ namespace QPlanApp.Views
         {
             InitializeComponent();
 
-            var item = new Item
+            var item = new Restaurant
             {
-                Text = "Item 1",
-                Description = "This is an item description."
+                Name = "Restaurant 1",
+                Address = "This is an restaurant description."
             };
 
             viewModel = new ItemDetailViewModel(item);

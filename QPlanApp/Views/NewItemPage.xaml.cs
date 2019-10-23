@@ -13,16 +13,16 @@ namespace QPlanApp.Views
     [DesignTimeVisible(false)]
     public partial class NewItemPage : ContentPage
     {
-        public Item Item { get; set; }
+        public Restaurant Restaurant { get; set; }
 
         public NewItemPage()
         {
             InitializeComponent();
 
-            Item = new Item
+            Restaurant = new Restaurant
             {
-                Text = "Item name",
-                Description = "This is an item description."
+                Name = "Item name",
+                Address = "This is an item description."
             };
 
             BindingContext = this;
@@ -30,7 +30,7 @@ namespace QPlanApp.Views
 
         async void Save_Clicked(object sender, EventArgs e)
         {
-            MessagingCenter.Send(this, "AddItem", Item);
+            MessagingCenter.Send(this, "AddItem", Restaurant);
             await Navigation.PopModalAsync();
         }
 

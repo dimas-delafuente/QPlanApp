@@ -12,7 +12,7 @@ namespace QPlanApp.ViewModels
 {
     public class BaseViewModel : INotifyPropertyChanged
     {
-        public IDataStore<Item> DataStore => DependencyService.Get<IDataStore<Item>>();
+        public IDataStore<Restaurant> DataStore => DependencyService.Get<IDataStore<Restaurant>>();
 
         bool isBusy = false;
         public bool IsBusy

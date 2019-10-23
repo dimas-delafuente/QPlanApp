@@ -6,7 +6,7 @@ namespace QPlanApp.Models
 {
     public enum MenuItemType
     {
-        Browse,
+        Restaurants,
         About
     }
     public class HomeMenuItem

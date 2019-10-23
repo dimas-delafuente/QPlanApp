@@ -29,7 +29,7 @@ namespace QPlanApp.Views
 
         async void OnItemSelected(object sender, SelectedItemChangedEventArgs args)
         {
-            var item = args.SelectedItem as Item;
+            var item = args.SelectedItem as Restaurant;
             if (item == null)
                 return;
 
@@ -48,7 +48,7 @@ namespace QPlanApp.Views
         {
             base.OnAppearing();
 
-            if (viewModel.Items.Count == 0)
+            if (viewModel.Restaurants.Count == 0)
                 viewModel.LoadItemsCommand.Execute(null);
         }
     }
