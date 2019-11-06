@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="QPlanApp.Views.RestaurantsView"    
+    xmlns:controls="clr-namespace:QPlanApp.Controls;assembly=QPlanApp" 
+    xmlns:maps="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps"  
+    xmlns:templates="clr-namespace:QPlanApp.Views.Templates;assembly=QPlanApp">
+    <ContentPage.Content>
+        <Grid
+            RowSpacing="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="240" />
+            </Grid.RowDefinitions>
+            <AbsoluteLayout
+                Grid.Row="1">
+                <controls:CustomMap  
+                    x:Name="Map"
+                    CustomPins="{Binding CustomPins}"
+                    AbsoluteLayout.LayoutBounds="0, 0, 1, 1"
+                    AbsoluteLayout.LayoutFlags="All"/>
+            </AbsoluteLayout>
+            <Grid
+                Grid.Row="2"
+                BackgroundColor="White">
+                <controls:HorizontalList  
+                    ListOrientation="Horizontal" 
+                    Margin="0, 5, 0, 0"
+                    ItemsSource="{Binding Restaurants}">
+                    <controls:HorizontalList.ItemTemplate>
+                        <DataTemplate>
+                            <templates:SuggestionItemTemplate />
+                        </DataTemplate>
+                    </controls:HorizontalList.ItemTemplate>
+                </controls:HorizontalList>
+            </Grid>
+            <!--<ActivityIndicator 
+                Grid.Row="1"
+                Color="{StaticResource AccentColor}"
+                IsRunning="{Binding IsBusy}" 
+                IsVisible="{Binding IsBusy}" />-->
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

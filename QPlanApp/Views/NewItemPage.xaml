@@ -5,12 +5,9 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="QPlanApp.Views.NewItemPage"
-             Title="New Item">
-    
-    <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Cancel" Clicked="Cancel_Clicked" />
-        <ToolbarItem Text="Save" Clicked="Save_Clicked" />
-    </ContentPage.ToolbarItems>
+             Title="New Item"
+             NavigationPage.HasNavigationBar="false">
+   
     
     <ContentPage.Content>
         <StackLayout Spacing="20" Padding="15">

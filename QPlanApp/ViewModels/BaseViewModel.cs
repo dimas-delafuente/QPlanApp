@@ -7,6 +7,7 @@ using Xamarin.Forms;
 
 using QPlanApp.Models;
 using QPlanApp.Services;
+using System.Threading.Tasks;
 
 namespace QPlanApp.ViewModels
 {
@@ -40,6 +41,8 @@ namespace QPlanApp.ViewModels
             OnPropertyChanged(propertyName);
             return true;
         }
+
+        public virtual Task InitializeAsync() => Task.FromResult(false);
 
         #region INotifyPropertyChanged
         public event PropertyChangedEventHandler PropertyChanged;

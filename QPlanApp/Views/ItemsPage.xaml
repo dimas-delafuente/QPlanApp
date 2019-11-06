@@ -5,12 +5,8 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="QPlanApp.Views.ItemsPage"
-             Title="{Binding Title}"
-             x:Name="BrowseItemsPage">
-
-    <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Add" Clicked="AddItem_Clicked" />
-    </ContentPage.ToolbarItems>
+             x:Name="BrowseItemsPage"
+             NavigationPage.HasNavigationBar="false">
 
     <StackLayout>
         <ListView x:Name="ItemsListView"

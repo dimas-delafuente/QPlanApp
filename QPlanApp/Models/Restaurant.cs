@@ -11,6 +11,12 @@ namespace QPlanApp.Models
         public double Latitude { get; set; }
         [JsonProperty(PropertyName = "longitude")]
         public double Longitude { get; set; }
+
+        public Location(double longitude, double latitud)
+        {
+            this.Longitude = longitude;
+            this.Latitude = latitud;
+        }
     }
 
     public class Restaurant

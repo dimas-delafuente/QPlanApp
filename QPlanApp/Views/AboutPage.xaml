@@ -6,7 +6,8 @@
              mc:Ignorable="d"
              x:Class="QPlanApp.Views.AboutPage"
              xmlns:vm="clr-namespace:QPlanApp.ViewModels"
-             Title="{Binding Title}">
+             Title="{Binding Title}"
+             NavigationPage.HasNavigationBar="false">
     
     <ContentPage.BindingContext>
         <vm:AboutViewModel />
