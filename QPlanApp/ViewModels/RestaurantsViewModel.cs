@@ -36,13 +36,12 @@ namespace QPlanApp.ViewModels
             {
                 IsBusy = true;
                 var res = new ObservableCollection<Restaurant>();
-                CustomPins = new ObservableCollection<CustomPin>();
+                var pins = new ObservableCollection<CustomPin>();
                 var dataRestaurants =  await DataStore.GetItemsAsync(true);
-                CustomPins = new ObservableRangeCollection<CustomPin>();
 
                 foreach (var restaurant in dataRestaurants.Take(10))
                 {
-                    CustomPins.Add(new CustomPin
+                    pins.Add(new CustomPin
                     {
                         Label = restaurant.Name,
                         Position = new Xamarin.Forms.Maps.Position(restaurant.Location.Latitude, restaurant.Location.Longitude)
@@ -52,6 +51,7 @@ namespace QPlanApp.ViewModels
                 }
 
                 Restaurants = res;
+                CustomPins = pins;
             }
             catch (HttpRequestException httpEx)
             {
