@@ -4,6 +4,7 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using QPlanApp.Services;
 using QPlanApp.Views;
+using QPlanApp.Services.Geolocator;
 
 namespace QPlanApp
 {
@@ -21,6 +22,7 @@ namespace QPlanApp
             InitializeComponent();
 
             DependencyService.Register<RestaurantsDataStore>();
+            DependencyService.Register<LocationService>();
 
             MainPage = new MainPage();
         }

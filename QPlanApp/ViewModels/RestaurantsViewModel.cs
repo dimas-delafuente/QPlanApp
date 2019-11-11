@@ -5,6 +5,8 @@ using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Net.Http;
 using System.Threading.Tasks;
+using QPlanApp.Services.Geolocator;
+using Xamarin.Forms;
 
 namespace QPlanApp.ViewModels
 {
@@ -12,9 +14,11 @@ namespace QPlanApp.ViewModels
     {
         ObservableCollection<CustomPin> customPins;
         ObservableCollection<Restaurant> restaurants;
+        private ILocationService locationService;
 
         public RestaurantsViewModel()
         {
+            this.locationService = DependencyService.Get<ILocationService>();
 
         }
 
@@ -35,9 +39,11 @@ namespace QPlanApp.ViewModels
             try
             {
                 IsBusy = true;
+
+                var location = await locationService.GetPositionAsync();
                 var res = new ObservableCollection<Restaurant>();
                 var pins = new ObservableCollection<CustomPin>();
-                var dataRestaurants =  await DataStore.GetItemsAsync(true);
+                var dataRestaurants =  await DataStore.GetItemsByLocationAsync(location.Latitude, location.Longitude, 10000);
 
                 foreach (var restaurant in dataRestaurants.Take(10))
                 {

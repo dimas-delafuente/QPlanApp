@@ -14,6 +14,8 @@ namespace QPlanApp.Services
         HttpClient client;
         IEnumerable<Restaurant> restaurants;
 
+        private const string RESTAURANTS_ENDPOINT = @"api/restaurants";
+
         public RestaurantsDataStore()
         {
             client = new HttpClient();
@@ -23,11 +25,24 @@ namespace QPlanApp.Services
         }
 
         bool IsConnected => Connectivity.NetworkAccess == NetworkAccess.Internet;
+
         public async Task<IEnumerable<Restaurant>> GetItemsAsync(bool forceRefresh = false)
         {
             if (forceRefresh && IsConnected)
             {
-                var json = await client.GetStringAsync($"api/restaurants");
+                var json = await client.GetStringAsync(RESTAURANTS_ENDPOINT);
+                var response = await Task.Run(() => JsonConvert.DeserializeObject<RootObject>(json));
+                restaurants = response.Restaurants;
+            }
+
+            return restaurants;
+        }
+
+        public async Task<IEnumerable<Restaurant>> GetItemsByLocationAsync(double latitude, double longitude, double radius)
+        {
+            if (IsConnected)
+            {
+                var json = await client.GetStringAsync($"{RESTAURANTS_ENDPOINT}/location?longitude={longitude}&latitude={latitude}&radius={radius}");
                 var response = await Task.Run(() => JsonConvert.DeserializeObject<RootObject>(json));
                 restaurants = response.Restaurants;
             }
@@ -81,5 +96,6 @@ namespace QPlanApp.Services
 
             return response.IsSuccessStatusCode;
         }
+
     }
 }
