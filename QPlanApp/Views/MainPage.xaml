@@ -8,7 +8,7 @@
     Shell.FlyoutBehavior="Locked">
       <TabBar>
         <Tab Title="Home">
-            <ShellContent ContentTemplate="{DataTemplate local:ItemsPage}"/>
+            <ShellContent ContentTemplate="{DataTemplate local:AboutPage}"/>
         </Tab>
         <Tab Title="Library">
             <ShellContent ContentTemplate="{DataTemplate local:RestaurantsView}"/>

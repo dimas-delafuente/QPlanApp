@@ -13,6 +13,7 @@ namespace QPlanApp.Services.Geolocator
 
         public async Task<Location> GetPositionAsync()
         {
+
             try
             {
                 Location position = await Geolocation.GetLastKnownLocationAsync();
@@ -34,6 +35,7 @@ namespace QPlanApp.Services.Geolocator
             {
                 Debug.WriteLine("Unable to get location: " + ex);
             }
+
 
             var defaultLocation = AppSettings.DefaultFallbackMapsLocation.ParseLocation();
 
