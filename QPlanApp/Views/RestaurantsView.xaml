@@ -21,6 +21,17 @@
                     CustomPins="{Binding CustomPins}"
                     AbsoluteLayout.LayoutBounds="0, 0, 1, 1"
                     AbsoluteLayout.LayoutFlags="All"/>
+                <SearchBar Placeholder="Search location..."
+                    CancelButtonColor="Black"
+                    PlaceholderColor="Black"
+                    TextColor="Black"
+                    HorizontalTextAlignment="Center"
+                    FontSize="Medium"
+                    FontAttributes="Italic"
+                    BackgroundColor="WhiteSmoke"
+                    AbsoluteLayout.LayoutBounds="0.5, 25, 0.9, 50"
+                    AbsoluteLayout.LayoutFlags="XProportional, WidthProportional"/>
+
             </AbsoluteLayout>
             <Grid
                 Grid.Row="2"
